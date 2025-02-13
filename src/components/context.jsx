@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { mainurl } from "./commonfile";
 
 const AuthContext = createContext();
 
@@ -12,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     const fetchMyProfile = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/userroute21/getauthuser",
+          `${mainurl}/userroute21/getauthuser`,
           { withCredentials: true }
         );
         setProfile(response.data.user);
