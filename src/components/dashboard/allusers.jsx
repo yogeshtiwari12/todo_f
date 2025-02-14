@@ -6,6 +6,7 @@ import {
   Building, ChevronRight, User, Calendar, Settings,
   ArrowUpRight, BarChart3
 } from "lucide-react";
+import { mainurl } from "../commonfile";
 
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
@@ -18,7 +19,7 @@ const AllUsers = () => {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const response = await axios.get("http://localhost:4000/userroute21/allusers", {
+        const response = await axios.get(`${mainurl}/userroute21/allusers`, {
           withCredentials: true,
         });
         if (response.data && response.data.users) {

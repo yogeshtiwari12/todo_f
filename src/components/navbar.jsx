@@ -5,6 +5,7 @@ import { useAuth } from './context';
 import { useNavigate } from 'react-router-dom';
 import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { mainurl } from './commonfile';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ function Navbar() {
 
   const logout = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/userroute21/logout', {}, {
+      const response = await axios.post(`${mainurl}/userroute21/logout`, {}, {
         withCredentials: true,
       });
       if (response.status === 200) {

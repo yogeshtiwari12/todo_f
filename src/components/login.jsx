@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-// import { toast, ToastContainer} from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { mainurl } from './commonfile';
+
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -14,7 +14,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        'http://localhost:4000/userroute21/login',
+        `${mainurl}/userroute21/login`,
         { email, password },
         { withCredentials: true }
       );
@@ -30,7 +30,7 @@ function Login() {
       }, 1000);
       navigate('/')
     } catch (err) {
-      // toast error handling
+      alert(err.response.data.message)
     }
   };
 

@@ -12,6 +12,7 @@ import {
   Filter,
   Loader2
 } from "lucide-react";
+import { mainurl } from "./commonfile";
 
 const UserTodos = () => {
   const { uid } = useParams();
@@ -24,7 +25,7 @@ const UserTodos = () => {
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/todosroute/userstodo/${uid}`, {
+        const response = await axios.get(`${mainurl}/todosroute/userstodo/${uid}`, {
           withCredentials: true,
         });
         setTodos(response.data.todos);

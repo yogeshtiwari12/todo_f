@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/userroute21/allusertodo/${profile.id}`,{withCredentials:true}
+          `${mainurl}/userroute21/allusertodo/${profile.id}`,{withCredentials:true}
         );
         settodos(response.data.todos);
         console.log(response.data.todos)

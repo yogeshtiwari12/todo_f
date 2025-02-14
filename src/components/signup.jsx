@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; 
+import { mainurl } from './commonfile';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -23,8 +24,10 @@ function Signup() {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:4000/userroute21/signup', formData, { withCredentials: true });
+      const response = await axios.put(`${mainurl}/userroute21/signup`, formData, { withCredentials: true });
+      // console.log(formData)
       if (response.status === 201) {
+        alert("signup successful")
         setMessage('Signup successful! Please log in.');
         setFormData({ name: '', email: '', password: '', role: '' });
       }
@@ -38,11 +41,7 @@ function Signup() {
       <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
         <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Signup</h1>
         
-        {message && (
-          <p className="text-blue-700 bg-blue-100 border border-blue-400 p-3 rounded mb-4 text-center">
-            {message}
-          </p>
-        )}
+        
         
         {error && (
           <p className="text-red-700 bg-red-100 border border-red-400 p-3 rounded mb-4 text-center">

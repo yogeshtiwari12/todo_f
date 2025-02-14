@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PlusCircle, Calendar } from 'lucide-react';
 import axios from 'axios';
+import { mainurl } from './commonfile';
 
 const Todo = () => {
   const [title, setTitle] = useState('');
@@ -33,7 +34,7 @@ const Todo = () => {
     };
 
     try {
-      await axios.put('http://localhost:4000/todosroute/addtodo', newTodo, { withCredentials: true });
+      await axios.put(`${mainurl}/todosroute/addtodo`, newTodo, { withCredentials: true });
       alert('Todo added successfully!');
       resetForm();
     } catch (error) {
