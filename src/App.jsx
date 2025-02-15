@@ -14,7 +14,7 @@ import UserTodos from './components/usertodo'
 function App() {
   return (
     <div  className="bg-green-50 ">
-      <BrowserRouter>
+      <BrowserRouter >
       <Navbar />  
      
         <Routes>
